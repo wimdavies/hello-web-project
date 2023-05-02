@@ -21,21 +21,10 @@ class Application < Sinatra::Base
   end
 
   post '/sort-names' do
-    # names is a comma-separated string of names
     names = params[:names]
 
     sorted_names = names.split(",").sort.join(",")
 
     return sorted_names
   end
-
-  # Request:
-  # POST http://localhost:9292/sort-names
-
-  # With body parameters:
-  # names=Joe,Alice,Zoe,Julia,Kieran
-
-  # Expected response (sorted list of names):
-  # Alice,Joe,Julia,Kieran,Zoe
-  
 end
