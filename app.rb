@@ -14,6 +14,12 @@ class Application < Sinatra::Base
     return "Hello #{name}!"
   end
 
+  get '/names' do
+    names = params[:names]
+
+    return "#{names}"
+  end
+
   # Request:
   # GET /names
 

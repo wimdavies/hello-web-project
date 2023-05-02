@@ -26,6 +26,22 @@ describe Application do
     end
   end
 
+  context "GET /names" do
+    it "returns 'Julia, Mary, Karim'" do
+      response = get('/names?names=Julia, Mary, Karim')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to eq('Julia, Mary, Karim')
+    end
+
+    it "returns 'Will, Leo'" do
+      response = get('/names?names=Will, Leo')
+
+      expect(response.status).to eq(200)
+      expect(response.body).to eq('Will, Leo')
+    end
+  end
+
 
   # context "GET to /" do
   #   it "returns 200 OK with the right content" do
