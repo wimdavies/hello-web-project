@@ -11,19 +11,19 @@ describe Application do
   let(:app) { Application.new }
 
   context "GET /hello" do
-    it "should return 'Hello Leo!'" do
-      response = get('/hello?name=Leo')
+    it "should return the greeting message as an HTML page" do
+      response = get('/hello')
 
       expect(response.status).to eq 200
-      expect(response.body).to eq "Hello Leo!"
+      expect(response.body).to include '<h1>Hello!</h1>'
     end
  
-    it "should return 'Hello Will!'" do
-      response = get('/hello?name=Will')
+    # it "should return 'Hello Will!'" do
+    #   response = get('/hello?name=Will')
 
-      expect(response.status).to eq 200
-      expect(response.body).to eq "Hello Will!"
-    end
+    #   expect(response.status).to eq 200
+    #   expect(response.body).to eq "Hello Will!"
+    # end
   end
 
   context "GET /names" do
